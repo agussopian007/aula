@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="id">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20261007-04-b4189fb","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo Black":"YACgEZulLoA,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Baloo 2":"YAHO2IcQUcM,0","Barlow Condensed":"YAFdJljEuFc,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Cinzel":"YACgEeV8bIQ,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Figtree":"YAHO2b-mV7A,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Fredoka":"YACgEZml080,0","Georgia":"YAGzXkO0pEM,0","Hanken Grotesk":"YAHO2VB9G0I,0","Helvetica":"YAFcf7zkXN0,0","IBM Plex Mono":"YAFdJkmvhGI,0","IBM Plex Sans":"YAFdJgT0SHI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Italiana":"YAHO2Toik_w,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Karla":"YAHO2V2NSXM,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Noto Sans JP":"YAFdJiHXlcI,0","Noto Sans KR":"YAGsojZj-RQ,0","Nunito Sans":"YAFdtQJYB9w,1","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Outfit":"YAHO2nVlg14,0","Pacifico":"YADLjORQ1u4,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAHO2gdhi18,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Sarabun":"YAFdJssSnME,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Space Grotesk":"YAHO2sjPCSM,0","Space Mono":"YADW1-vpsoc,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0"}}');</script><script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1729">
+  <title>Jadwal Penggunaan Aula / PID</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface:#0b1729; --panel:#14243a; --raised:#1b3049;
+      --accent:#a9ee72; --ink:#f3f7fc; --muted:#aebed0;
+      --line:#30445b; --warning:#ffcb73;
+    }
+    * { box-sizing:border-box; }
+    html { color-scheme:dark; }
+    body { margin:0; color:var(--ink); font-family:"DM Sans",sans-serif; }
+    .app-shell {
+      width:100%; min-height:calc(100 * min(var(--vh, 1vh), 1vh));
+      background:radial-gradient(ellipse at 78% 0%,#1c3850 0%,transparent 45%),var(--surface);
+    }
+    .mono { font-family:"Space Mono",monospace; font-variant-numeric:tabular-nums; }
+    .focusable:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+    .content-grid { display:grid; grid-template-columns:minmax(0,1fr) 290px; gap:16px; align-items:start; }
+    .schedule-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+    .schedule-card {
+      min-width:0; min-height:91px; padding:10px 13px;
+      border:1px solid var(--line); border-radius:12px; background:var(--panel);
+    }
+    .schedule-card.active { background:var(--raised); border-color:var(--accent); box-shadow:inset 4px 0 var(--accent); }
+    .schedule-card.finished { border-color:#344254; }
+    .schedule-card.finished .schedule-time,
+    .schedule-card.finished .schedule-person { color:var(--muted); }
+    .schedule-time { font:700 17px/1.3 "Space Mono",monospace; letter-spacing:-.055em; white-space:nowrap; }
+    .status-tag {
+      display:inline-block; max-width:100%; padding:3px 8px; border-radius:6px;
+      font-size:10px; line-height:1.35; font-weight:800; letter-spacing:.04em;
+      white-space:nowrap; background:#274760; color:#d9f5ff;
+    }
+    .status-tag.active { background:var(--accent); color:#112417; }
+    .status-tag.finished { background:#283b4f; color:#b9c8d5; }
+    .conflict-tag { color:var(--warning); font-size:11px; font-weight:700; }
+    .priority-tag { color:var(--accent); font-size:11px; font-weight:800; }
+    .conflict-note { color:var(--muted); font-size:10px; margin-top:2px; }
+    .booking-image { image-rendering:auto; }
+    @media (max-width:1100px) {
+      .content-grid { grid-template-columns:minmax(0,1fr); }
+      .booking-layout { display:flex; align-items:center; justify-content:center; gap:24px; }
+      .booking-copy { flex:1; }
+    }
+    @media (max-width:700px) {
+      .schedule-grid { grid-template-columns:1fr; }
+      .booking-layout { display:block; }
+      .schedule-card { min-height:0; }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+  <script src="/_sdk/076b13200873adb1.editing_sdk.js" type="text/javascript" integrity="sha512-ZtNtm8+39bIBEM+BqVFLF2DGJcZDSJkgYAfQa13MND+siMeCmOpG2FoU1Iv6fGQyEH3Y1nIM5T9xiJG2Bq/ozw=="></script>
+  <script src="/_sdk/ab4336f91e694f96.resizing_sdk.js" type="text/javascript" integrity="sha512-cxmeUrBrNlwwLr+tEu/iwM5F3boeK4qDMoH3QjUPqJptkO5NkaDVhQvyIHIn+3EflI5/uubWzkSA78B1tCswgA=="></script>
+ </head>
+ <style>
+    #room-status.font-extrabold {
+      font-size: 48px !important;
+      line-height: 1 !important;
+      font-weight: 800 !important;
+      position: relative;
+      top: 0;
+    }
+ </style>
+ <body data-template-id="__page-root">
+  <div class="app-shell w-full">
+   <div class="w-full max-w-[1920px] mx-auto px-5 py-5 lg:px-8">
+    <header class="flex flex-wrap items-center justify-between gap-4 border-b pb-4" style="border-color:var(--line)">
+     <div class="min-w-0">
+      <p data-template-id="school-name" class="canva-text font-bold uppercase tracking-widest mb-1"></p>
+      <h1 data-template-id="app-title" class="canva-text font-extrabold leading-tight"></h1>
+      <p id="today-label" class="font-semibold mt-1" style="color:var(--muted)" aria-live="off">Memuat tanggal…</p>
+     </div>
+     <div class="flex items-center gap-4">
+      <div id="clock" class="mono font-bold text-[25px] sm:text-[32px]" aria-label="Waktu Indonesia Barat">
+       --:--:--
+      </div><button id="fullscreen-btn" type="button" data-template-id="fullscreen-button" class="canva-button focusable flex items-center gap-2 border rounded-lg px-3 py-2 font-bold" style="border-color:var(--line)"> <i data-lucide="maximize" class="w-4 h-4" aria-hidden="true"></i> <span data-template-id="fullscreen-label" class="canva-text"></span> </button>
+     </div>
+    </header>
+    <main>
+     <section data-template-id="status-panel" class="canva-panel flex flex-wrap items-center justify-between gap-3 rounded-xl border px-4 py-3 my-4" style="border-color:var(--line)" aria-labelledby="status-heading">
+      <div class="flex flex-col items-start gap-1">
+          <h2 id="status-heading"
+              data-template-id="status-heading"
+              class="canva-text uppercase tracking-wider font-bold"></h2>
+
+          <strong id="room-status"
+                  class="font-extrabold"
+                  aria-live="polite">
+          </strong>
+
+          <span id="status-detail"
+                style="color:var(--muted)">
+          </span>
+        </div>
+      <div class="flex items-center gap-3">
+       <span id="last-update" class="mono text-xs" style="color:var(--muted)">Belum diperbarui</span> <button id="refresh-btn" type="button" data-template-id="refresh-button" class="canva-button focusable rounded-lg px-3 py-2 font-bold"></button>
+      </div>
+     </section>
+     <div class="content-grid">
+      <section class="min-w-0" aria-labelledby="schedule-heading">
+       <div class="flex flex-wrap items-end justify-between gap-2 mb-3">
+        <h2 id="schedule-heading" data-template-id="schedule-heading" class="canva-text font-extrabold"></h2><span id="schedule-count" class="font-semibold text-sm" style="color:var(--muted)"></span>
+       </div>
+       <p id="message" role="status" aria-live="polite" class="hidden mb-3 border rounded-lg px-3 py-2" style="border-color:var(--line);background:var(--panel)"></p>
+       <div id="schedule-list" class="schedule-grid"></div>
+       <div id="empty-state" class="hidden rounded-xl border p-7 text-center" style="border-color:var(--line);background:var(--panel)">
+        <h3 data-template-id="empty-title" class="canva-text font-bold"></h3>
+        <p data-template-id="empty-description" class="canva-text mt-2"></p>
+       </div>
+      </section>
+      <aside data-template-id="booking-panel" class="canva-panel booking-layout rounded-xl border p-4" style="border-color:var(--line)" aria-labelledby="booking-heading">
+       <div class="booking-copy">
+        <h2 id="booking-heading" data-template-id="booking-heading" class="canva-text font-extrabold"></h2>
+        <p data-template-id="booking-description" class="canva-text mt-2 mb-4"></p>
+        <div class="bg-white rounded-lg p-2 mx-auto w-fit">
+         <img data-template-id="qr-code-image" class="canva-image booking-image block w-[220px] h-[220px] object-contain" loading="lazy">
+        </div><a data-template-id="booking-form-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfnnKApbnYH3GP1R2eOh7U0pjads6fMYfVzp6O_lC5lLzDfjQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="canva-button focusable block text-center w-full rounded-lg px-4 py-3 mt-4 font-extrabold"></a>
+       </div>
+      </aside>
+     </div>
+    </main>
+    
+    <footer class="border-t mt-5 pt-3 flex flex-wrap justify-between gap-2 text-xs" style="border-color:var(--line);color:var(--muted)">
+     <p data-template-id="footer-note" class="canva-text">Sistem Informasi Digital · Jadwal Penggunaan Aula / PID SMP Negeri 2 Cibiuk Created by Agus Sopian</p>
+    </footer>
+   </div>
+  </div>
+  <template id="schedule-template">
+   <article data-template-id="schedule-card" class="canva-card schedule-card">
+    <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+     <p class="schedule-time"></p><span class="status-tag"></span>
+    </div>
+    <h3 data-template-id="card-activity" class="canva-text schedule-person font-bold leading-snug mt-1 break-words"></h3><span class="priority-tag hidden">★ PRIORITAS</span><span class="conflict-tag hidden">⚠ BENTROK</span>
+    <p class="conflict-note hidden"></p>
+    <p data-template-id="card-note" class="canva-text schedule-note hidden text-sm leading-snug mt-1 break-words"></p>
+   </article>
+  </template>
+  <script>
+    const SOURCE = {
+      apiUrl:"https://script.google.com/macros/s/AKfycbx2t8ON6uImcs64mASJk3-0lyr34h5-Hkk2fafekLLPe87-9PtREWwRmqD4RxuylGQS/exec",
+      timeZone:"Asia/Jakarta",
+      refreshIntervalMs:30000
+    };
+    const $ = id => document.getElementById(id);
+    const state = { rows:[], loaded:false, fetching:false, dayKey:"", lastUpdated:null };
+    const dateFormatter = new Intl.DateTimeFormat("id-ID",{
+      timeZone:SOURCE.timeZone,weekday:"long",day:"numeric",month:"long",year:"numeric"
+    });
+    const partsFormatter = new Intl.DateTimeFormat("en-GB",{
+      timeZone:SOURCE.timeZone,year:"numeric",month:"2-digit",day:"2-digit",
+      hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"
+    });
+    const timeFormatter = new Intl.DateTimeFormat("id-ID",{
+      timeZone:SOURCE.timeZone,hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"
+    });
+    function parts(date) {
+      return Object.fromEntries(partsFormatter.formatToParts(date)
+        .filter(part => part.type !== "literal").map(part => [part.type,part.value]));
+    }
+    function dayKey(date) {
+      const p=parts(date);
+      return `${p.year}-${p.month}-${p.day}`;
+    }
+    function minutesNow(date) {
+      const p=parts(date);
+      return Number(p.hour)*60+Number(p.minute)+Number(p.second)/60;
+    }
+    function parseDate(value) {
+      const text=String(value ?? "").trim();
+      let m=text.match(/^Date\((\d{4}),\s*(\d{1,2}),\s*(\d{1,2})\)/i);
+      if(m) return `${m[1]}-${String(Number(m[2])+1).padStart(2,"0")}-${m[3].padStart(2,"0")}`;
+      m=text.match(/^(\d{4})-(\d{1,2})-(\d{1,2})(?:\b|T)/);
+      if(m) return `${m[1]}-${m[2].padStart(2,"0")}-${m[3].padStart(2,"0")}`;
+      m=text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+      if(m) return `${m[3]}-${m[1].padStart(2,"0")}-${m[2].padStart(2,"0")}`;
+      m=text.match(/^(\d{1,2})[.-](\d{1,2})[.-](\d{4})/);
+      if(m) return `${m[3]}-${m[2].padStart(2,"0")}-${m[1].padStart(2,"0")}`;
+      return "";
+    }
+    function parseTime(value) {
+      const text=String(value ?? "").trim();
+      let m=text.match(/^Date\(\d{4},\s*\d{1,2},\s*\d{1,2},\s*(\d{1,2}),\s*(\d{1,2})/i);
+      if(m) return Number(m[1])*60+Number(m[2]);
+      m=text.match(/^(\d{1,2})[:.](\d{2})(?::\d{2})?\s*(AM|PM)?/i);
+      if(!m) return null;
+      let h=Number(m[1]), min=Number(m[2]);
+      if(min>59 || h>(m[3]?12:23) || (m[3] && h<1)) return null;
+      if(m[3]) h=h%12+(m[3].toUpperCase()==="PM"?12:0);
+      return h*60+min;
+    }
+    function timeText(value) {
+      return `${String(Math.floor(value/60)).padStart(2,"0")}:${String(value%60).padStart(2,"0")}`;
+    }
+    function sourceRows(payload) {
+      if(Array.isArray(payload)) return payload;
+      for(const key of ["data","rows","result","records","items"])
+        if(Array.isArray(payload?.[key])) return payload[key];
+      throw new Error("Format data jadwal tidak dikenali.");
+    }
+    function normalize(payload) {
+      const pick=(item,names)=>{
+        const key=Object.keys(item||{}).find(k=>names.includes(k.toLowerCase().replace(/[\s_-]/g,"")));
+        return key ? item[key] : "";
+      };
+      return sourceRows(payload).map((item,index)=>{
+        const date=parseDate(pick(item,["tanggal","date","hari"]));
+        const start=parseTime(pick(item,["waktumulai","jammulai","start","starttime"]));
+        const end=parseTime(pick(item,["waktuselesai","jamselesai","end","endtime"]));
+        if(!date || start===null || end===null || end<=start) return null;
+        return {
+          id:`${index}-${date}-${start}-${end}`,date,start,end,
+          teacher:String(pick(item,["teacher","namaguru","namapemesan","guru","pemesan","nama"])||"").trim(),
+          subject:String(pick(item,["subject","matapelajaran","kegiatan","activity","acara"])||"").trim(),
+          note:String(pick(item,["note","keterangan","catatan"])||"").trim(),
+          timestamp:String(pick(item,["timestamp","waktupengisian","submittedat","submissiontimestamp"])||"").trim()
+        };
+      }).filter(Boolean);
+    }
+    function timestampValue(value) {
+      const text=String(value||"").trim();
+      if(!text) return Number.POSITIVE_INFINITY;
+      const parsed=Date.parse(text);
+      if(!Number.isNaN(parsed)) return parsed;
+      const match=text.match(/(\d{1,2})[:.](\d{2})(?::(\d{2}))?/);
+      if(match) return Number(match[1])*3600000+Number(match[2])*60000+Number(match[3]||0)*1000;
+      return Number.POSITIVE_INFINITY;
+    }
+    function conflictState(rows) {
+      const byTimestamp=[...rows].sort((a,b)=>timestampValue(a.timestamp)-timestampValue(b.timestamp));
+      const priorityIds=new Set(), conflictIds=new Set();
+      byTimestamp.forEach(row=>{
+        const earlier=byTimestamp.some(other=>other!==row && timestampValue(other.timestamp)<timestampValue(row.timestamp) &&
+          other.start<row.end && row.start<other.end);
+        if(earlier) conflictIds.add(row.id);
+        else if(byTimestamp.some(other=>other!==row && other.start<row.end && row.start<other.end)) priorityIds.add(row.id);
+      });
+      return {priorityIds,conflictIds};
+    }
+    function setText(element,text) {
+      if(element.textContent!==text) element.textContent=text;
+    }
+    function showMessage(text,error=false) {
+      const el=$("message");
+      setText(el,text);
+      el.classList.toggle("hidden",!text);
+      el.style.color=error?"var(--warning)":"var(--muted)";
+    }
+    function render() {
+      const now=minutesNow(new Date());
+      const rows=state.rows.filter(row=>row.date===state.dayKey)
+        .sort((a,b)=>a.start-b.start || a.end-b.end);
+      setText($("schedule-count"),`${rows.length} jadwal hari ini`);
+      $("empty-state").classList.toggle("hidden",!state.loaded || rows.length!==0);
+      const active=rows.filter(row=>row.start<=now && now<row.end);
+      const next=rows.find(row=>row.start>now);
+      const conflicts=conflictState(rows);
+      setText($("room-status"),!state.loaded?"JADWAL BELUM TERSEDIA":
+        active.length?"SEDANG DIGUNAKAN":next?"BOOKING BERIKUTNYA":"TERSEDIA");
+      setText($("status-detail"),!state.loaded?"Menunggu data jadwal.":
+        active.length
+  ? active
+      .map(
+        row =>
+          `${row.teacher || "Nama guru tidak tercantum"} - ${row.subject || "Kegiatan tidak tercantum"}`
+      )
+      .join("  |  "):
+        next?`${timeText(next.start)} — ${next.subject||next.teacher}`:
+        "Tidak ada jadwal berikutnya hari ini.");
+      $("room-status").style.color=active.length?"var(--accent)":"var(--ink)";
+
+      const list=$("schedule-list");
+      const existing=new Map([...list.children].map(card=>[card.dataset.rowId,card]));
+      rows.forEach((row,index)=>{
+        let card=existing.get(row.id);
+        if(!card) {
+          card=$("schedule-template").content.firstElementChild.cloneNode(true);
+          card.dataset.rowId=row.id;
+        }
+        const isActive=row.start<=now && now<row.end;
+        const finished=row.end<=now;
+        card.classList.toggle("active",isActive);
+        card.classList.toggle("finished",finished);
+        setText(card.querySelector(".schedule-time"),`${timeText(row.start)} - ${timeText(row.end)}`);
+        setText(card.querySelector(".schedule-person"),
+          `${row.teacher||"Nama guru tidak tercantum"} - ${row.subject||"Mata pelajaran tidak tercantum"}`);
+        const tag=card.querySelector(".status-tag");
+        setText(tag,finished?"SELESAI":isActive?"SEDANG BERLANGSUNG":
+          row.id===next?.id?"BERIKUTNYA":"TERJADWAL");
+        tag.classList.toggle("active",isActive);
+        tag.classList.toggle("finished",finished);
+        const note=card.querySelector(".schedule-note");
+        setText(note,row.note);
+        note.classList.toggle("hidden",!row.note);
+        const isPriority=conflicts.priorityIds.has(row.id);
+        const isConflict=conflicts.conflictIds.has(row.id);
+        const priorityTag=card.querySelector(".priority-tag");
+        const conflictTag=card.querySelector(".conflict-tag");
+        const conflictNote=card.querySelector(".conflict-note");
+        setText(priorityTag,"★ PRIORITAS");
+        setText(conflictTag,"⚠ BENTROK");
+        setText(conflictNote,isPriority?"Booking lebih awal":isConflict?"Booking bertabrakan dengan jadwal prioritas":"");
+        priorityTag.classList.toggle("hidden",!isPriority);
+        conflictTag.classList.toggle("hidden",!isConflict);
+        conflictNote.classList.toggle("hidden",!isPriority && !isConflict);
+        if(list.children[index]!==card) list.insertBefore(card,list.children[index]||null);
+        existing.delete(row.id);
+      });
+      existing.forEach(card=>card.remove());
+    }
+    async function refresh() {
+      if(state.fetching) return;
+      state.fetching=true;
+      const button=$("refresh-btn");
+      button.disabled=true;
+      if(!state.loaded) showMessage("Mengambil data jadwal…");
+      try {
+        const response=await fetch(SOURCE.apiUrl,{method:"GET",redirect:"follow",cache:"no-store"});
+        if(!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload=await response.json();
+        state.rows=normalize(payload);
+        state.loaded=true;
+        state.lastUpdated=new Date();
+        setText($("last-update"),`Diperbarui ${timeFormatter.format(state.lastUpdated).replace(/\./g,":")} WIB`);
+        showMessage("");
+        render();
+      } catch {
+        showMessage(state.loaded?
+          "Pembaruan gagal. Jadwal terakhir tetap ditampilkan.":
+          "Jadwal tidak dapat dimuat. Tekan Perbarui untuk mencoba lagi.",true);
+        render();
+      } finally {
+        state.fetching=false;
+        button.disabled=false;
+      }
+    }
+    function tick() {
+      const now=new Date();
+      setText($("clock"),timeFormatter.format(now).replace(/\./g,":"));
+      setText($("today-label"),dateFormatter.format(now));
+      const today=dayKey(now);
+      if(today!==state.dayKey) {
+        state.dayKey=today;
+        render();
+        if(state.loaded) refresh();
+      } else if(state.loaded) render();
+    }
+    document.addEventListener("DOMContentLoaded",()=>{
+      state.dayKey=dayKey(new Date());
+      $("refresh-btn").addEventListener("click",refresh);
+      $("fullscreen-btn").addEventListener("click",async()=>{
+        try {
+          if(document.fullscreenElement) await document.exitFullscreen();
+          else await document.documentElement.requestFullscreen();
+          showMessage("");
+        } catch {
+          showMessage("Mode layar penuh tidak tersedia pada tampilan ini.",true);
+        }
+      });
+      tick();
+      refresh();
+      setInterval(tick,1000);
+      setInterval(refresh,SOURCE.refreshIntervalMs);
+      if(window.lucide) lucide.createIcons();
+    });
+  </script>
+  
+
+ </body>
+</html>
