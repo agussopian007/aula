@@ -263,7 +263,7 @@
       const next=rows.find(row=>row.start>now);
       const conflicts=conflictState(rows);
       setText($("room-status"),!state.loaded?"JADWAL BELUM TERSEDIA":
-        active.length?"SEDANG DIGUNAKAN":next?"BOOKING BERIKUTNYA":"TERSEDIA");
+        active.length?"SEDANG DIGUNAKAN":next?"PENGGUNA BERIKUTNYA":"TERSEDIA");
       setText($("status-detail"),!state.loaded?"Menunggu data jadwal.":
         active.length
   ? active
