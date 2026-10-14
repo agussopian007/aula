@@ -62,7 +62,7 @@
  </head>
  <style>
     #room-status.font-extrabold {
-      font-size: 48px !important;
+      font-size: 28px !important;
       line-height: 1 !important;
       font-weight: 800 !important;
       position: relative;
@@ -74,8 +74,8 @@
    <div class="w-full max-w-[1920px] mx-auto px-5 py-5 lg:px-8">
     <header class="flex flex-wrap items-center justify-between gap-4 border-b pb-4" style="border-color:var(--line)">
      <div class="min-w-0">
-      <p data-template-id="school-name" class="canva-text font-bold uppercase tracking-widest mb-1"></p>
-      <h1 data-template-id="app-title" class="canva-text font-extrabold leading-tight"></h1>
+       <h1 data-template-id="app-title" class="canva-text font-extrabold leading-tight"></h1>
+       <p data-template-id="school-name" class="canva-text font-bold uppercase tracking-widest mb-1">JADWAL PENGGUNAAN AULA/PID</p>
       <p id="today-label" class="font-semibold mt-1" style="color:var(--muted)" aria-live="off">Memuat tanggal…</p>
      </div>
      <div class="flex items-center gap-4">
@@ -89,7 +89,7 @@
       <div class="flex flex-col items-start gap-1">
           <h2 id="status-heading"
               data-template-id="status-heading"
-              class="canva-text uppercase tracking-wider font-bold"></h2>
+              class="canva-text uppercase tracking-wider font-bold">STATUS</h2>
 
           <strong id="room-status"
                   class="font-extrabold"
@@ -118,20 +118,24 @@
       </section>
       <aside data-template-id="booking-panel" class="canva-panel booking-layout rounded-xl border p-4" style="border-color:var(--line)" aria-labelledby="booking-heading">
        <div class="booking-copy">
-        <h2 id="booking-heading" data-template-id="booking-heading" class="canva-text font-extrabold">Scan it!</h2>
+        <h1 id="booking-heading" data-template-id="booking-heading" class="canva-text font-extrabold text-center">Scan it!</h1>
         <p data-template-id="booking-description" class="canva-text mt-2 mb-4"></p>
         <div class="bg-white rounded-lg p-2 mx-auto w-fit">
-         <img data-template-id="qr-code-image" class="canva-image booking-image block w-[220px] h-[220px] object-contain" loading="lazy" src="qr-code.png">
+         <img data-template-id="qr-code-image" class="canva-image booking-image block w-[220px] h-[220px] object-contain" loading="lazy"
+         src="qr-code.png"
+         >
         </div>
-        <a data-template-id="booking-form-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfnnKApbnYH3GP1R2eOh7U0pjads6fMYfVzp6O_lC5lLzDfjQ/viewform?usp=header" 
-               target="_blank" rel="noopener noreferrer"
-               style="background:grey !important;border-radius:25px;padding:10px">ISI FORMULIR</a>
+        <a data-template-id="booking-form-button" 
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfnnKApbnYH3GP1R2eOh7U0pjads6fMYfVzp6O_lC5lLzDfjQ/viewform?usp=sharing&ouid=104584415183837905806" target="_blank" 
+        rel="noopener noreferrer" 
+        class="canva-button focusable block text-center px-4 py-3 mt-4 font-extrabold"
+        style="background-color: #1e4368 !important;border-radius: 15px;">Isi Formulir</a>
        </div>
       </aside>
      </div>
     </main>
     
-    <footer class="border-t mt-5 pt-3 flex flex-wrap justify-between gap-2 text-xs" style="border-color:var(--line);color:var(--muted)">
+    <footer class="border-t mt-5 pt-3 flex flex-wrap justify-between gap-2 text-xs text-center" style="border-color:var(--line);color:var(--muted)">
      <p data-template-id="footer-note" class="canva-text">Sistem Informasi Digital · Jadwal Penggunaan Aula / PID SMP Negeri 2 Cibiuk Created by Agus Sopian</p>
     </footer>
    </div>
@@ -266,7 +270,7 @@
       const next=rows.find(row=>row.start>now);
       const conflicts=conflictState(rows);
       setText($("room-status"),!state.loaded?"JADWAL BELUM TERSEDIA":
-        active.length?"SEDANG DIGUNAKAN":next?"PENGGUNA BERIKUTNYA":"TERSEDIA");
+        active.length?"SEDANG DIGUNAKAN":next?"BOOKING BERIKUTNYA":"TERSEDIA");
       setText($("status-detail"),!state.loaded?"Menunggu data jadwal.":
         active.length
   ? active
